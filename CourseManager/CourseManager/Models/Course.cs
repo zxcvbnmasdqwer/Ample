@@ -11,14 +11,10 @@ namespace CourseManager.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Course
     {
-        [Key]
-        [Required]
         public int Id { get; set; }
-        [StringLength(20)]
         public string Name { get; set; }
     }
 }

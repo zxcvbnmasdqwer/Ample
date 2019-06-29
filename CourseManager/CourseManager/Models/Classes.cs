@@ -15,11 +15,13 @@ namespace CourseManager.Models
     
     public partial class Classes
     {
-        [Key]
-        [Required]
         public int Id { get; set; }
-        [StringLength(20)]
+    
+        [Required(ErrorMessage="请输入班级名称")]
+        [StringLength(20,MinimumLength=2,ErrorMessage="班级名称至少包含两个字符")]
         public string Name { get; set; }
+     
         public Nullable<int> TeacherId { get; set; }
+        
     }
 }

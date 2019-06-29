@@ -1,9 +1,7 @@
-﻿@model CourseManager.Models.Teachers
-@using CourseManager.Models
+﻿@model CourseManager.Models.Teacher
 
 @{
     ViewBag.Title = "Create";
-    var teachers = (List<Teachers>)ViewBag.Teachers;
 }
 
 <h2>Create</h2>
@@ -12,7 +10,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Teachers</legend>
+        <legend>Teacher</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)

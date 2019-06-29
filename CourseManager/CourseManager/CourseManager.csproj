@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{07A01301-F74E-497D-9183-268C37C774A3}</ProjectGuid>
+    <ProjectGuid>{F7411814-6292-46C4-8858-6FFEE3EDB5C9}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -163,37 +164,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ActionLinkController.cs" />
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
-    <Compile Include="Controllers\CourseManagementsController.cs" />
+    <Compile Include="Controllers\CourseManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SideBarController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910130710523_Update201911121451.cs" />
-    <Compile Include="Migrations\201910130710523_Update201911121451.Designer.cs">
-      <DependentUpon>201910130710523_Update201911121451.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910130712284_Update201911121451.cs" />
-    <Compile Include="Migrations\201910130712284_Update201911121451.Designer.cs">
-      <DependentUpon>201910130712284_Update201911121451.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910130713494_Update201911121451.cs" />
-    <Compile Include="Migrations\201910130713494_Update201911121451.Designer.cs">
-      <DependentUpon>201910130713494_Update201911121451.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910130734090_Update20191112145.cs" />
-    <Compile Include="Migrations\201910130734090_Update20191112145.Designer.cs">
-      <DependentUpon>201910130734090_Update20191112145.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911270850185_Create201911271650.cs" />
-    <Compile Include="Migrations\201911270850185_Create201911271650.Designer.cs">
-      <DependentUpon>201911270850185_Create201911271650.cs</DependentUpon>
+    <Compile Include="Migrations\201906300123350_Create20190630.cs" />
+    <Compile Include="Migrations\201906300123350_Create20190630.Designer.cs">
+      <DependentUpon>201906300123350_Create20190630.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Seeds\UsresCreator.cs" />
+    <Compile Include="Migrations\seed\ActionLinkCreator.cs" />
+    <Compile Include="Migrations\seed\SideBarCreator.cs" />
+    <Compile Include="Models\ActionLinks.cs" />
     <Compile Include="Models\Classes.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -204,29 +193,22 @@
     <Compile Include="Models\CourseManagements.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\CourseManager.Context.cs">
-      <SubType>Code</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\CourseManager.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\CourseManager.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
+    <Compile Include="Models\CourseManager.Context.cs" />
+    <Compile Include="Models\SideBars.cs" />
     <Compile Include="Models\Students.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Teachers.cs">
+    <Compile Include="Models\Teacher.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\WebsiteInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -283,7 +265,19 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -298,16 +292,8 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -354,42 +340,49 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\CourseManagement\Index.cshtml" />
+    <Content Include="Views\CourseManagement\Details.cshtml" />
+    <Content Include="Views\CourseManagement\Create.cshtml" />
+    <Content Include="Views\CourseManagement\Edit.cshtml" />
+    <Content Include="Views\CourseManagement\Delete.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\Create.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
     <Content Include="Views\Course\Delete.cshtml" />
-    <Content Include="Views\CourseManagements\Index.cshtml" />
-    <Content Include="Views\CourseManagements\Details.cshtml" />
-    <Content Include="Views\CourseManagements\Create.cshtml" />
-    <Content Include="Views\CourseManagements\Edit.cshtml" />
-    <Content Include="Views\CourseManagements\Delete.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Navbar.cshtml" />
+    <Content Include="Views\ActionLink\Index.cshtml" />
+    <Content Include="Views\ActionLink\Details.cshtml" />
+    <Content Include="Views\ActionLink\Create.cshtml" />
+    <Content Include="Views\ActionLink\Edit.cshtml" />
+    <Content Include="Views\ActionLink\Delete.cshtml" />
+    <Content Include="Views\SideBar\Index.cshtml" />
+    <Content Include="Views\SideBar\Details.cshtml" />
+    <Content Include="Views\SideBar\Create.cshtml" />
+    <Content Include="Views\SideBar\Edit.cshtml" />
+    <Content Include="Views\SideBar\Delete.cshtml" />
+    <Content Include="Views\Shared\SideBar.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910130710523_Update201911121451.resx">
-      <DependentUpon>201910130710523_Update201911121451.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910130712284_Update201911121451.resx">
-      <DependentUpon>201910130712284_Update201911121451.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910130713494_Update201911121451.resx">
-      <DependentUpon>201910130713494_Update201911121451.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910130734090_Update20191112145.resx">
-      <DependentUpon>201910130734090_Update20191112145.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911270850185_Create201911271650.resx">
-      <DependentUpon>201911270850185_Create201911271650.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906300123350_Create20190630.resx">
+      <DependentUpon>201906300123350_Create20190630.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -410,7 +403,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3545/</IISUrl>
+          <IISUrl>http://localhost:9098/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

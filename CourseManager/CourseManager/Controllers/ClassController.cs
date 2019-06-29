@@ -39,8 +39,8 @@ namespace CourseManager.Controllers
 
         public ActionResult Create()
         {
-            var teachers = db.Teachers.ToList();
-            ViewBag.Teachers = teachers;
+            var teachers = db.Teacher.ToList();
+            ViewBag.Teacher = teachers;
 
             return View();
         }
@@ -66,12 +66,13 @@ namespace CourseManager.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            var teachers = db.Teachers.ToList();
-            ViewBag.Teachers = teachers;
+            var teachers = db.Teacher.ToList();
+            ViewBag.Teacher = teachers;
             Classes classes = db.Classes.Find(id);
             if (classes == null)
             {
                 return HttpNotFound();
+                
             }
             return View(classes);
         }

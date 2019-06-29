@@ -18,7 +18,7 @@ namespace CourseManager.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Teachers.ToList());
+            return View(db.Teacher.ToList());
         }
 
         //
@@ -26,12 +26,12 @@ namespace CourseManager.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
+            Teacher teacher = db.Teacher.Find(id);
+            if (teacher == null)
             {
                 return HttpNotFound();
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         //
@@ -46,16 +46,16 @@ namespace CourseManager.Controllers
         // POST: /Teacher/Create
 
         [HttpPost]
-        public ActionResult Create(Teachers teachers)
+        public ActionResult Create(Teacher teacher)
         {
             if (ModelState.IsValid)
             {
-                db.Teachers.Add(teachers);
+                db.Teacher.Add(teacher);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(teachers);
+            return View(teacher);
         }
 
         //
@@ -63,27 +63,27 @@ namespace CourseManager.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
+            Teacher teacher = db.Teacher.Find(id);
+            if (teacher == null)
             {
                 return HttpNotFound();
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         //
         // POST: /Teacher/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Teachers teachers)
+        public ActionResult Edit(Teacher teacher)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(teachers).State = EntityState.Modified;
+                db.Entry(teacher).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         //
@@ -91,12 +91,12 @@ namespace CourseManager.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
+            Teacher teacher = db.Teacher.Find(id);
+            if (teacher == null)
             {
                 return HttpNotFound();
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         //
@@ -105,8 +105,8 @@ namespace CourseManager.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Teachers teachers = db.Teachers.Find(id);
-            db.Teachers.Remove(teachers);
+            Teacher teacher = db.Teacher.Find(id);
+            db.Teacher.Remove(teacher);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,4 +1,4 @@
-﻿@model CourseManager.Models.Teachers
+﻿@model CourseManager.Models.Teacher
 
 @{
     ViewBag.Title = "Delete";
@@ -8,20 +8,13 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>Teachers</legend>
+    <legend>Teacher</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.TeacherId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.TeacherId)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
