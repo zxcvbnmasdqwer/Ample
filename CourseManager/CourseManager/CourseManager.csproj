@@ -172,11 +172,28 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910130710523_Update201911121451.cs" />
+    <Compile Include="Migrations\201910130710523_Update201911121451.Designer.cs">
+      <DependentUpon>201910130710523_Update201911121451.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910130712284_Update201911121451.cs" />
+    <Compile Include="Migrations\201910130712284_Update201911121451.Designer.cs">
+      <DependentUpon>201910130712284_Update201911121451.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910130713494_Update201911121451.cs" />
+    <Compile Include="Migrations\201910130713494_Update201911121451.Designer.cs">
+      <DependentUpon>201910130713494_Update201911121451.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910130734090_Update20191112145.cs" />
+    <Compile Include="Migrations\201910130734090_Update20191112145.Designer.cs">
+      <DependentUpon>201910130734090_Update20191112145.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201911270850185_Create201911271650.cs" />
     <Compile Include="Migrations\201911270850185_Create201911271650.Designer.cs">
       <DependentUpon>201911270850185_Create201911271650.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Seeds\UsresCreator.cs" />
     <Compile Include="Models\Classes.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -206,6 +223,7 @@
     <Compile Include="Models\Teachers.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -358,6 +376,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910130710523_Update201911121451.resx">
+      <DependentUpon>201910130710523_Update201911121451.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910130712284_Update201911121451.resx">
+      <DependentUpon>201910130712284_Update201911121451.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910130713494_Update201911121451.resx">
+      <DependentUpon>201910130713494_Update201911121451.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910130734090_Update20191112145.resx">
+      <DependentUpon>201910130734090_Update20191112145.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911270850185_Create201911271650.resx">
       <DependentUpon>201911270850185_Create201911271650.cs</DependentUpon>
     </EmbeddedResource>
